@@ -41,7 +41,7 @@ public class ChatClient {
 
         }catch (Exception e){
             e.printStackTrace();
-            throw  new RuntimeException("客户端发送连接请求失败---");
+            throw new RuntimeException("客户端发送连接请求失败---");
         }
 
     }
