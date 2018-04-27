@@ -1,7 +1,10 @@
 package com.websocket;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 //程序入口，负责启动应用
 public class Main {
@@ -12,7 +15,13 @@ public class Main {
 
         try{
             ServerBootstrap b = new ServerBootstrap();
-
+            b.group(bossGroup,workGroup);
+            b.channel(NioServerSocketChannel.class);
+            b.childHandler(new MyWebSocketChannelHandler());
+            b.childOption(ChannelOption.SO_KEEPALIVE, true);
+            System.out.println("服务端开始等待客户端连接----------------------");
+            Channel ch = b.bind(8888).sync().channel();
+            ch.closeFuture().sync();
 
         }catch (Exception e){
             e.printStackTrace();
