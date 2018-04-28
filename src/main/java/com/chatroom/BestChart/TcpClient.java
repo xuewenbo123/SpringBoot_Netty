@@ -6,7 +6,7 @@ import java.net.Socket;
 public class TcpClient {
 
     public static void main(String[] args) throws IOException{
-        Socket socket = new Socket("192.168.108.1", 6666);
+        Socket socket = new Socket("192.168.184.1", 6666);
 
         //创建读取线程
         Thread readThread = new Thread(new ReadThread(socket));
