@@ -2,6 +2,7 @@ package com.websocket;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -21,7 +22,8 @@ public class Main {
             b.childOption(ChannelOption.SO_KEEPALIVE, true);
             System.out.println("服务端开始等待客户端连接----------------------");
             Channel ch = b.bind(8888).sync().channel();
-            ch.closeFuture().sync();
+            ChannelFuture f = ch.closeFuture().sync();
+            f.channel().closeFuture().sync();
 
         }catch (Exception e){
             e.printStackTrace();
