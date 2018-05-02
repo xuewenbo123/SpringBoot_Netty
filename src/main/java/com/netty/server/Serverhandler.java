@@ -2,6 +2,7 @@ package com.netty.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -15,7 +16,7 @@ public class Serverhandler extends ChannelHandlerAdapter {
             throws Exception {
         System.out.println("接收客户端msg:["+msg+"]");
         ByteBuf echo= Unpooled.copiedBuffer(MESSAGE.getBytes());
-        ctx.writeAndFlush(echo);
+        ChannelFuture channelFuture = ctx.writeAndFlush(echo);
     }
 
     @Override

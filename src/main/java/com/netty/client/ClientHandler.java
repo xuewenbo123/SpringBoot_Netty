@@ -8,7 +8,7 @@ public class ClientHandler extends ChannelHandlerAdapter {
 
     private static final String MESSAGE="Netty is a NIO client server framework & " +
             "which enables quick and easy &" +
-            "development of network applications" +
+            "development of network & applications" +
             " such as protocol servers and & clients.";
     public ClientHandler(){}
     @Override
