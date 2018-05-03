@@ -30,7 +30,7 @@ public class Server_A {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ByteBuf byteBuf = Unpooled.copiedBuffer("&".getBytes());
                             ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,byteBuf));//设置分隔符解码器
-//                            ch.pipeline().addLast(new FixedLengthFrameDecoder(30));//设置定长解码器 长度设置为30
+                            ch.pipeline().addLast(new FixedLengthFrameDecoder(30));//设置定长解码器 长度设置为30
                             //                            LineBasedFrameDecoder      换行符解码器
                             ch.pipeline().addLast(new StringDecoder());//设置字符串解码器 自动将报文转为字符串
                             ch.pipeline().addLast(new Serverhandler());//处理网络IO 处理器
@@ -47,7 +47,7 @@ public class Server_A {
         }
     }
     public static void main(String[] args) throws Exception {
-        int port=8000;
+        int port=7788;
         new Server_A().bind(port);
     }
 

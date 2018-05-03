@@ -46,8 +46,9 @@ public class Client_A {
         }
     }
     public static void main(String[] args) throws Exception {
-        int port=8000;
+        int port=7788;
         new Client_A().connect(port, "127.0.0.1");
+//        new Client_A().connect(port, "117.107.171.100");
     }
 
 }

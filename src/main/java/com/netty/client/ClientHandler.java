@@ -10,6 +10,9 @@ public class ClientHandler extends ChannelHandlerAdapter {
             "which enables quick and easy &" +
             "development of network & applications" +
             " such as protocol servers and & clients.";
+
+//    private static final String MESSAGE="<SPBSJ*P:BSJGPS*T:120.076.068.123,7788*A:CMNET*N:863014531073292*C:0030>";
+
     public ClientHandler(){}
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

@@ -9,7 +9,7 @@ import io.netty.channel.ChannelHandlerContext;
 public class Serverhandler extends ChannelHandlerAdapter {
 
     private static final String MESSAGE="It greatly simplifies and streamlines network programming such as TCP and UDP socket server.";
-//
+
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
