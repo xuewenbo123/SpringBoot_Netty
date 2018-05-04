@@ -1,5 +1,6 @@
 package com.netty_w3c;
 
+import com.netty.messageDeal.Decoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -48,9 +49,10 @@ public class EchoServer {
     private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
         @Override
         protected void initChannel(SocketChannel ch) throws Exception {
-            ch.pipeline().addLast(new FixedLengthFrameDecoder(30));//设置定长解码器 长度设置为30
-            ch.pipeline().addLast(new StringDecoder());//设置字符串解码器 自动将报文转为字符串
-            ch.pipeline().addLast(new EchoClientHandler());//处理网络IO 处理器
+//            ch.pipeline().addLast(new FixedLengthFrameDecoder(30));//设置定长解码器 长度设置为30
+//            ch.pipeline().addLast(new StringDecoder());//设置字符串解码器 自动将报文转为字符串
+            ch.pipeline().addLast(new Decoder());//设置字符串解码器 自动将报文转为字符串
+            ch.pipeline().addLast(new EchoServerHandler());//处理网络IO 处理器
         }
 
     }

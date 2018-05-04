@@ -1,4 +1,4 @@
-package com.netty.client;
+package com.TCP_netty;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,10 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.FixedLengthFrameDecoder;
-import io.netty.handler.codec.string.StringDecoder;
 
-public class Client_A {
+public class TCPClient {
 
     /**
      * 链接服务器
@@ -30,10 +28,6 @@ public class Client_A {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-//                            ch.pipeline().addLast(new FixedLengthFrameDecoder(30));//设置定长解码器
-                            ch.pipeline().addLast(new StringDecoder());//设置字符串解码器
-
-
                             ch.pipeline().addLast(new ClientHandler());//设置客户端网络IO处理器
                         }
                     });
@@ -46,10 +40,8 @@ public class Client_A {
             group.shutdownGracefully();
         }
     }
-    public static void main(String[] args) throws Exception {
-        int port=9169 ;
-        new Client_A().connect(port, "115.28.75.240");
-//        new Client_A().connect(port, "127.0.0.1");
-    }
+
+
+
 
 }

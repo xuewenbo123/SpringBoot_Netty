@@ -47,7 +47,7 @@ public class Server_A {
         }
     }
     public static void main(String[] args) throws Exception {
-        int port=7788;
+        int port=9169;
         new Server_A().bind(port);
     }
 

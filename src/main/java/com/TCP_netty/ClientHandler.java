@@ -1,4 +1,4 @@
-package com.netty.client;
+package com.TCP_netty;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
@@ -6,17 +6,10 @@ import io.netty.channel.ChannelHandlerContext;
 
 public class ClientHandler extends ChannelHandlerAdapter {
 
-    private static final String MESSAGE="Netty is a NIO client server framework & " +
-            "which enables quick and easy &" +
-            "development of network & applications" +
-            " such as protocol servers and & clients.";
-
-//    private static final String MESSAGE="<SPBSJ*P:BSJGPS*T:120.076.068.123,7788*A:CMNET*N:863014531073292*C:0030>";
-
     public ClientHandler(){}
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(Unpooled.copiedBuffer(MESSAGE.getBytes()));
+
     }
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)throws Exception {
@@ -30,6 +23,8 @@ public class ClientHandler extends ChannelHandlerAdapter {
 
         ctx.flush();
     }
+
+
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
             throws Exception {

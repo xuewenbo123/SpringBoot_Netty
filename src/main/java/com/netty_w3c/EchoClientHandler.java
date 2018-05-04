@@ -20,7 +20,6 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
-        System.out.println("客户端收到服务器响应数据");
         System.out.println("接收服务器响应msg:["+msg+"]");
 
     }
